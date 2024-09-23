@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.51](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.50...v2.0.0-rc.51) (2024-09-23)
+
+### Features
+
+- **plugin-redirect:** add remember my choice, close [#253](https://github.com/vuepress/ecosystem/issues/253) ([#259](https://github.com/vuepress/ecosystem/issues/259)) ([8805d9c](https://github.com/vuepress/ecosystem/commit/8805d9c95611facabc3c02cb50d6ee9dafdac852))
+- **plugin-sass-palette:** remove variables staring with underscore in generator ([f329800](https://github.com/vuepress/ecosystem/commit/f329800e357e5a27eb1107252977dd98b29affed))
+
+# [2.0.0-rc.50](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.49...v2.0.0-rc.50) (2024-09-23)
+
+**Note:** Version bump only for package @vuepress/ecosystem
+
+# [2.0.0-rc.49](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.48...v2.0.0-rc.49) (2024-09-23)
+
+### Bug Fixes
+
+- **plugin-markdown-math:** incorrect import css path ([#256](https://github.com/vuepress/ecosystem/issues/256)) ([4e61424](https://github.com/vuepress/ecosystem/commit/4e6142496e2e80472d377d58cfbf538e5a51a981))
+
+### Features
+
+- **plugin-prismjs:** improve highlight color generation ([492cd27](https://github.com/vuepress/ecosystem/commit/492cd2746821e1e3554f8a46de14042c107bb68b))
+
+# [2.0.0-rc.48](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.47...v2.0.0-rc.48) (2024-09-22)
+
+### Bug Fixes
+
+- **plugin-revealjs:** fix embed mode and keyboard events ([5d98506](https://github.com/vuepress/ecosystem/commit/5d985061c232037dc48329e3b8ce28ba15f75e1d))
+
+# [2.0.0-rc.47](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.46...v2.0.0-rc.47) (2024-09-22)
+
+### Bug Fixes
+
+- **plugin-comment:** avoid resolving issues in pnpm ([2e319fe](https://github.com/vuepress/ecosystem/commit/2e319fe75f67419321372c1931419030fa227e1c))
+- **theme-default:** fix hero action button color ([12a8d5d](https://github.com/vuepress/ecosystem/commit/12a8d5dc44198f58999c6ad88c750c775aba4950))
+
+### Features
+
+- add plugin-markdown-tab ([#250](https://github.com/vuepress/ecosystem/issues/250)) ([49ea97c](https://github.com/vuepress/ecosystem/commit/49ea97cf10f07ad3e20b2528d17efc3b6576ac7a))
+- add plugin-revealjs ([#251](https://github.com/vuepress/ecosystem/issues/251)) ([253b959](https://github.com/vuepress/ecosystem/commit/253b959cca19fd8ef9eff5d90f21a147c916899a))
+- **plugin-docsearch:** improve search box appearance ([5282d3b](https://github.com/vuepress/ecosystem/commit/5282d3b3c5ca63170d2c915e76054cb326c00e11))
+- **plugin-markdown-hint:** toggle all details block open before print ([4cb99de](https://github.com/vuepress/ecosystem/commit/4cb99dee940441d030d23d92bf9c6749678e3cd6))
+- **plugin-redirect:** appear target language first ([4ca960a](https://github.com/vuepress/ecosystem/commit/4ca960a90de9dce54c2b45038eec11e3fe9e5d7e))
+
+# [2.0.0-rc.46](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.45...v2.0.0-rc.46) (2024-09-20)
+
+### Bug Fixes
+
+- apply code font color, close [#248](https://github.com/vuepress/ecosystem/issues/248) ([7cc5746](https://github.com/vuepress/ecosystem/commit/7cc574699fe14592a46cc555dcf6cd7eac581274))
+- **plugin-markdown-math:** correct client config file path ([b7ab87b](https://github.com/vuepress/ecosystem/commit/b7ab87b954d40036b3ceae05f645191a4dc571d1))
+- **plugin-shiki:** correctly fallback code font color, close [#248](https://github.com/vuepress/ecosystem/issues/248) ([65f048a](https://github.com/vuepress/ecosystem/commit/65f048abad917798d8cd9b53e67ab5894077b08b))
+- **theme-default:** fix invalid component ([ea29e2d](https://github.com/vuepress/ecosystem/commit/ea29e2d6c24fcabc5c887a0f344c85da1d5fc05d))
+
+### Features
+
+- **helper:** add LoadingIcon and useDarkmode ([06584ba](https://github.com/vuepress/ecosystem/commit/06584bacd6566d1109bdc1fe19afe4948ba2ba86))
+- **helper:** improve normalize ([5c7a902](https://github.com/vuepress/ecosystem/commit/5c7a9028a52d61d58f346c3f9857bd2bd7be9432))
+- **plugin-comment:** import LoadingIcon from helper ([4476698](https://github.com/vuepress/ecosystem/commit/447669834e94df1710e589b7af93f56dac226508))
+- **theme-default:** improve palette ([36db48e](https://github.com/vuepress/ecosystem/commit/36db48ec46312c2777edb32785ed0a29ef3fc704))
+
 # [2.0.0-rc.45](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.44...v2.0.0-rc.45) (2024-09-20)
 
 ### Bug Fixes

@@ -18,6 +18,7 @@ import type {
 import { useWalineOptions } from '../helpers/index.js'
 
 import '@waline/client/waline.css'
+import '../styles/waline.css'
 
 declare const WALINE_META: boolean
 declare const WALINE_LOCALES: WalineLocaleConfig
@@ -78,20 +79,19 @@ export default defineComponent({
           walineOptions.value.delay,
           enablePageViews.value,
         ],
-        () => {
+        async () => {
           abort?.()
+          abort = null
 
-          if (enablePageViews.value)
-            void nextTick()
-              .then(() => wait(walineOptions.value.delay ?? 800))
-              .then(() => {
-                setTimeout(() => {
-                  abort = pageviewCount({
-                    serverURL: walineOptions.value.serverURL,
-                    path: props.identifier,
-                  })
-                })
-              })
+          if (enablePageViews.value) {
+            await nextTick()
+            await wait(walineOptions.value.delay ?? 800)
+
+            abort = pageviewCount({
+              serverURL: walineOptions.value.serverURL,
+              path: props.identifier,
+            })
+          }
         },
         { immediate: true },
       )

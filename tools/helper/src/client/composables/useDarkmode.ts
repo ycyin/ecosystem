@@ -4,7 +4,9 @@ import { onMounted, readonly, ref } from 'vue'
 
 import { getDarkmode } from '../utils/index.js'
 
-export const useDarkmode = (): Readonly<Ref<boolean>> => {
+let darkmode: Readonly<Ref<boolean>> | null = null
+
+const _useDarkmode = (): Readonly<Ref<boolean>> => {
   const isDarkmode = ref(false)
 
   // Watch darkmode change
@@ -25,3 +27,7 @@ export const useDarkmode = (): Readonly<Ref<boolean>> => {
 
   return readonly(isDarkmode)
 }
+
+// eslint-disable-next-line no-return-assign
+export const useDarkmode = (): Readonly<Ref<boolean>> =>
+  (darkmode ??= _useDarkmode())

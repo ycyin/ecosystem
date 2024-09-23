@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.49](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.48...v2.0.0-rc.49) (2024-09-23)
+
+**Note:** Version bump only for package @vuepress/theme-default
+
+# [2.0.0-rc.47](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.46...v2.0.0-rc.47) (2024-09-22)
+
+### Bug Fixes
+
+- **theme-default:** fix hero action button color ([12a8d5d](https://github.com/vuepress/ecosystem/commit/12a8d5dc44198f58999c6ad88c750c775aba4950))
+
+# [2.0.0-rc.46](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.45...v2.0.0-rc.46) (2024-09-20)
+
+### Bug Fixes
+
+- **theme-default:** fix invalid component ([ea29e2d](https://github.com/vuepress/ecosystem/commit/ea29e2d6c24fcabc5c887a0f344c85da1d5fc05d))
+
+### Features
+
+- **theme-default:** improve palette ([36db48e](https://github.com/vuepress/ecosystem/commit/36db48ec46312c2777edb32785ed0a29ef3fc704))
+
 # [2.0.0-rc.45](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.44...v2.0.0-rc.45) (2024-09-20)
 
 ### Bug Fixes

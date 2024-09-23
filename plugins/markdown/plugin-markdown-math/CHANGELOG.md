@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.49](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.48...v2.0.0-rc.49) (2024-09-23)
+
+### Bug Fixes
+
+- **plugin-markdown-math:** incorrect import css path ([#256](https://github.com/vuepress/ecosystem/issues/256)) ([4e61424](https://github.com/vuepress/ecosystem/commit/4e6142496e2e80472d377d58cfbf538e5a51a981))
+
+# [2.0.0-rc.47](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.46...v2.0.0-rc.47) (2024-09-22)
+
+**Note:** Version bump only for package @vuepress/plugin-markdown-math
+
+# [2.0.0-rc.46](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.45...v2.0.0-rc.46) (2024-09-20)
+
+### Bug Fixes
+
+- **plugin-markdown-math:** correct client config file path ([b7ab87b](https://github.com/vuepress/ecosystem/commit/b7ab87b954d40036b3ceae05f645191a4dc571d1))
+
 # [2.0.0-rc.45](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.44...v2.0.0-rc.45) (2024-09-20)
 
 **Note:** Version bump only for package @vuepress/plugin-markdown-math
