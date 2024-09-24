@@ -1,4 +1,4 @@
-import { LoadingIcon, decodeData } from '@vuepress/helper/client'
+import { LoadingIcon, decodeData, wait } from '@vuepress/helper/client'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
 import type { Chart } from 'flowchart.ts'
 import type { PropType, VNode } from 'vue'
@@ -81,10 +81,7 @@ export default defineComponent({
     onMounted(() => {
       void Promise.all([
         import(/* webpackChunkName: "flowchart" */ 'flowchart.ts'),
-        // Delay
-        new Promise<void>((resolve) => {
-          setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
-        }),
+        wait(MARKDOWN_ENHANCE_DELAY),
       ]).then(([{ parse }]) => {
         flowchart = parse(decodeData(props.code))
 
