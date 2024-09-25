@@ -8,7 +8,7 @@ import { flowchartPresets } from '../utils/index.js'
 
 import '../styles/flowchart.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 export default defineComponent({
   name: 'FlowChart',
@@ -81,7 +81,7 @@ export default defineComponent({
     onMounted(() => {
       void Promise.all([
         import(/* webpackChunkName: "flowchart" */ 'flowchart.ts'),
-        wait(MARKDOWN_ENHANCE_DELAY),
+        wait(__MC_DELAY__),
       ]).then(([{ parse }]) => {
         flowchart = parse(decodeData(props.code))
 

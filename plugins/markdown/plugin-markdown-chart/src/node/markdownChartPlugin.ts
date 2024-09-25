@@ -50,6 +50,10 @@ export const markdownChartPlugin =
     return {
       name: PLUGIN_NAME,
 
+      define: {
+        __MC_DELAY__: options.delay ?? 800,
+      },
+
       extendsMarkdown: (md) => {
         if (status.chartjs) md.use(chartJs)
         if (status.echarts) md.use(echarts)

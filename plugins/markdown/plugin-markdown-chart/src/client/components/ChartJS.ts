@@ -10,7 +10,7 @@ import { computed, defineComponent, h, ref, shallowRef, watch } from 'vue'
 
 import '../styles/chartjs.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 const parseChartConfig = (
   config: string,
@@ -95,7 +95,7 @@ export default defineComponent({
     const renderChart = async (darkmode: boolean): Promise<void> => {
       const [{ default: Chart }] = await Promise.all([
         import(/* webpackChunkName: "chartjs" */ 'chart.js/auto'),
-        loaded ? Promise.resolve() : wait(MARKDOWN_ENHANCE_DELAY),
+        loaded ? Promise.resolve() : wait(__MC_DELAY__),
       ])
 
       loaded = true

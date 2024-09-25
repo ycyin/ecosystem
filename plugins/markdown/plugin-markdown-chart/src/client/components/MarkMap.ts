@@ -13,7 +13,7 @@ import {
 
 import '../styles/markmap.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 export default defineComponent({
   name: 'MarkMap',
@@ -55,7 +55,7 @@ export default defineComponent({
         import(/* webpackChunkName: "markmap" */ 'markmap-view'),
         // Delay
         new Promise<void>((resolve) => {
-          setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
+          setTimeout(resolve, __MC_DELAY__)
         }),
       ]).then(
         async ([
