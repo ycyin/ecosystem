@@ -4,3 +4,7 @@ declare module 'mermaid/dist/mermaid.esm.min.mjs' {
 
   export default mermaid
 }
+
+declare module '*.css' {
+  export {}
+}

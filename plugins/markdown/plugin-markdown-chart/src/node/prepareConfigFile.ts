@@ -39,7 +39,7 @@ export const prepareConfigFile = async (
   if (status.mermaid) {
     imports.add(`import Mermaid from "${CLIENT_FOLDER}components/Mermaid.js";`)
     imports.add(
-      `import { injectMermaidConfig } from "${CLIENT_FOLDER}/index.js";`,
+      `import { injectMermaidConfig } from "${CLIENT_FOLDER}index.js";`,
     )
     enhances.add(`injectMermaidConfig(app);`)
     enhances.add(`app.component("Mermaid", Mermaid);`)

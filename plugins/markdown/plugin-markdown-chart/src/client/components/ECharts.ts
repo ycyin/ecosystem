@@ -12,7 +12,7 @@ import {
 } from 'vue'
 
 import { useEChartsConfig } from '../helpers/index.js'
-import '../styles/echarts.scss'
+import '../styles/echarts.css'
 
 declare const MARKDOWN_ENHANCE_DELAY: number
 

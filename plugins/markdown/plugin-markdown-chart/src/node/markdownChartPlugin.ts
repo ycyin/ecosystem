@@ -15,6 +15,7 @@ import {
   plantuml,
 } from './markdown-it-plugins/index.js'
 import type { MarkdownChartPluginOptions } from './options.js'
+import { prepareConfigFile } from './prepareConfigFile.js'
 import { PLUGIN_NAME, getInstallStatus, logger } from './utils.js'
 
 export const markdownChartPlugin =
@@ -106,5 +107,7 @@ export const markdownChartPlugin =
           addViteSsrExternal(bundlerOptions, app, 'mermaid')
         }
       },
+
+      clientConfigFile: () => prepareConfigFile(app, status),
     }
   }

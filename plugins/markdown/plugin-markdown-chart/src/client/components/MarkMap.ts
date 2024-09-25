@@ -11,7 +11,7 @@ import {
   shallowRef,
 } from 'vue'
 
-import '../styles/markmap.scss'
+import '../styles/markmap.css'
 
 declare const MARKDOWN_ENHANCE_DELAY: number
 
@@ -39,12 +39,12 @@ export default defineComponent({
     const markupWrapper = shallowRef<HTMLElement>()
     const markmapSvg = shallowRef<SVGElement>()
 
-    let markupMap: Markmap | null = null
+    let markmap: Markmap | null = null
 
     useEventListener(
       'resize',
       useDebounceFn(() => {
-        void markupMap?.fit()
+        void markmap?.fit()
       }, 100),
     )
 
@@ -58,13 +58,19 @@ export default defineComponent({
           setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
         }),
       ]).then(
-        async ([{ Transformer }, { Toolbar }, { Markmap, deriveOptions }]) => {
-          const transformer = new Transformer()
+        async ([
+          { Transformer, builtInPlugins },
+          { Toolbar },
+          { Markmap, deriveOptions, loadCSS, loadJS },
+        ]) => {
+          const transformer = new Transformer([...builtInPlugins])
+          const { scripts, styles } = transformer.getAssets()
+
           const { frontmatter, root } = transformer.transform(
             decodeData(props.content),
           )
 
-          markupMap = Markmap.create(
+          markmap = Markmap.create(
             markmapSvg.value!,
             deriveOptions({
               maxWidth: 240,
@@ -72,23 +78,27 @@ export default defineComponent({
             }),
           )
 
-          const { el } = Toolbar.create(markupMap)
+          if (styles) await loadCSS(styles)
+          if (scripts) await loadJS(scripts, { getMarkmap: () => markmap })
 
-          markupMap.setData(root)
-          await markupMap.fit()
+          const { el } = Toolbar.create(markmap)
+
+          markmap.setData(root)
+          await markmap.fit()
 
           el.style.position = 'absolute'
           el.style.bottom = '0.5rem'
           el.style.right = '0.5rem'
 
           markupWrapper.value!.append(el)
+
           loading.value = false
         },
       )
     })
 
     onUnmounted(() => {
-      markupMap?.destroy()
+      markmap?.destroy()
     })
 
     return (): VNode =>

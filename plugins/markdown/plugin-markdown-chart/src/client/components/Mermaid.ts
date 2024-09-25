@@ -18,7 +18,7 @@ import {
 import { useMermaidOptions } from '../helpers/index.js'
 import type { MermaidThemeVariables } from '../typings/index.js'
 
-import '../styles/mermaid.scss'
+import '../styles/mermaid.css'
 
 declare const MARKDOWN_ENHANCE_DELAY: number
 

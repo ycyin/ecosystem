@@ -8,7 +8,7 @@ import type { Chart, ChartConfiguration } from 'chart.js'
 import type { PropType, VNode } from 'vue'
 import { computed, defineComponent, h, ref, shallowRef, watch } from 'vue'
 
-import '../styles/chartjs.scss'
+import '../styles/chartjs.css'
 
 declare const MARKDOWN_ENHANCE_DELAY: number
 

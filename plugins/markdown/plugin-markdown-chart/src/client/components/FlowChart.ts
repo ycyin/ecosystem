@@ -6,7 +6,7 @@ import { computed, defineComponent, h, onMounted, ref, shallowRef } from 'vue'
 
 import { flowchartPresets } from '../utils/index.js'
 
-import '../styles/flowchart.scss'
+import '../styles/flowchart.css'
 
 declare const MARKDOWN_ENHANCE_DELAY: number
 

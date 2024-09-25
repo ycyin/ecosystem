@@ -8,11 +8,11 @@ This plugin provides 6 ways to let you insert charts into your markdown file.
 
 - chart.js: A lightweight, easy-to-use, highly customizable chart library.
 
-  chart.js is lighter comparing to eCharts.
+  chart.js is lighter comparing to echarts.
 
-- eCharts: A powerful, interactive charting and visualization library for browser.
+- echarts: A powerful, interactive charting and visualization library for browser.
 
-  eCharts is more powerful comparing to chart.js.
+  echarts is more powerful comparing to chart.js.
 
 - Flowchart: A simple markdown extension to generate flowcharts and sequence diagrams.
 
