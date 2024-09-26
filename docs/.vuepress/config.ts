@@ -93,7 +93,7 @@ export default defineUserConfig({
       rss: true,
     }),
     markdownChartPlugin({
-      chartJs: true,
+      chartjs: true,
       echarts: true,
       flowchart: true,
       markmap: true,

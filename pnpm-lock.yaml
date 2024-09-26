@@ -663,6 +663,12 @@ importers:
       '@types/markdown-it':
         specifier: ^14.1.2
         version: 14.1.2
+      markdown-it:
+        specifier: ^14.1.0
+        version: 14.1.0
+      markmap-common:
+        specifier: ^0.17.0
+        version: 0.17.0
 
   plugins/markdown/plugin-markdown-container:
     dependencies:

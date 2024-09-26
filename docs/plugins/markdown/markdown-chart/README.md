@@ -43,7 +43,7 @@ export default {
   plugins: [
     markdownChartPlugin({
       // Enable chart.js
-      chartJs: true,
+      chartjs: true,
       // Enable echarts
       echarts: true,
       // Enable flowchart.ts

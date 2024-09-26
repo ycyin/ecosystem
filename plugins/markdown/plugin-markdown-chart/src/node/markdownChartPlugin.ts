@@ -7,7 +7,7 @@ import {
 } from '@vuepress/helper'
 import type { Plugin } from 'vuepress/core'
 import {
-  chartJs,
+  chartjs,
   echarts,
   flowchart,
   markmap,
@@ -36,7 +36,7 @@ export const markdownChartPlugin =
     }
 
     const status = {
-      chartjs: getStatus('chartJs', ['chart.js']),
+      chartjs: getStatus('chartjs', ['chart.js']),
       echarts: getStatus('echarts', ['echarts']),
       flowchart: getStatus('flowchart', ['flowchart.ts']),
       markmap: getStatus('markmap', [
@@ -55,7 +55,7 @@ export const markdownChartPlugin =
       },
 
       extendsMarkdown: (md) => {
-        if (status.chartjs) md.use(chartJs)
+        if (status.chartjs) md.use(chartjs)
         if (status.echarts) md.use(echarts)
         if (status.flowchart) md.use(flowchart)
         if (isArray(options.plantuml)) md.use(plantuml, options)

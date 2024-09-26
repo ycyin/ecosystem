@@ -27,11 +27,11 @@ export default defineComponent({
     id: { type: String, required: true },
 
     /**
-     * Markmap content
+     * Markmap data
      *
-     * Markmap
+     * Markmap 数据
      */
-    content: { type: String, required: true },
+    data: { type: String, required: true },
   },
 
   setup(props) {
@@ -51,24 +51,24 @@ export default defineComponent({
     onMounted(() => {
       void Promise.all([
         import(/* webpackChunkName: "markmap" */ 'markmap-lib'),
-        import(/* webpackChunkName: "markmap" */ 'markmap-toolbar'),
         import(/* webpackChunkName: "markmap" */ 'markmap-view'),
+        import(/* webpackChunkName: "markmap" */ 'markmap-toolbar'),
         // Delay
         new Promise<void>((resolve) => {
           setTimeout(resolve, __MC_DELAY__)
         }),
       ]).then(
-        async ([
-          { Transformer, builtInPlugins },
-          { Toolbar },
-          { Markmap, deriveOptions, loadCSS, loadJS },
-        ]) => {
-          const transformer = new Transformer([...builtInPlugins])
-          const { scripts, styles } = transformer.getAssets()
+        async ([{ Transformer, builtInPlugins }, markmapView, { Toolbar }]) => {
+          const { Markmap, deriveOptions, loadCSS, loadJS } = markmapView
 
-          const { frontmatter, root } = transformer.transform(
-            decodeData(props.content),
+          const transformer = new Transformer(builtInPlugins)
+          const { features, frontmatter, root } = transformer.transform(
+            decodeData(props.data),
           )
+          const { styles, scripts } = transformer.getUsedAssets(features)
+
+          if (styles) await loadCSS(styles)
+          if (scripts) await loadJS(scripts, { getMarkmap: () => markmapView })
 
           markmap = Markmap.create(
             markmapSvg.value!,
@@ -76,15 +76,12 @@ export default defineComponent({
               maxWidth: 240,
               ...frontmatter?.markmap,
             }),
+            root,
           )
 
-          if (styles) await loadCSS(styles)
-          if (scripts) await loadJS(scripts, { getMarkmap: () => markmap })
+          await markmap.fit()
 
           const { el } = Toolbar.create(markmap)
-
-          markmap.setData(root)
-          await markmap.fit()
 
           el.style.position = 'absolute'
           el.style.bottom = '0.5rem'

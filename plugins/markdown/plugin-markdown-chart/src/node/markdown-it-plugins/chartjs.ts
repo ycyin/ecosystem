@@ -2,14 +2,14 @@ import { container } from '@mdit/plugin-container'
 import { encodeData } from '@vuepress/helper'
 import type { PluginSimple } from 'markdown-it'
 
-export const chartJs: PluginSimple = (md) => {
+export const chartjs: PluginSimple = (md) => {
   container(md, {
     name: 'chartjs',
     openRender: (tokens, index) => {
       const title = tokens[index].info
         .trimStart()
         // "chart" length
-        .slice(5)
+        .slice(7)
         .trim()
 
       const key = `chartjs-${index}`
