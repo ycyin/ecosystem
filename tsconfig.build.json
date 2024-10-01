@@ -43,9 +43,6 @@
     { "path": "./plugins/markdown/plugin-links-check/tsconfig.build.json" },
     { "path": "./plugins/markdown/plugin-markdown-chart/tsconfig.build.json" },
     {
-      "path": "./plugins/markdown/plugin-markdown-chart/tsconfig.build.json"
-    },
-    {
       "path": "./plugins/markdown/plugin-markdown-container/tsconfig.build.json"
     },
 
