@@ -27,12 +27,12 @@ const AsyncFunction = (async (): Promise<void> => {}).constructor
 const parseEChartsConfig = (
   config: string,
   type: 'js' | 'json',
-  myChart: EChartsType,
+  echarts: EChartsType,
 ): Promise<EChartsConfig> => {
   if (type === 'js') {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const runner = AsyncFunction(
-      'myChart',
+      'echarts',
       `\
 let width,height,option,__echarts_config__;
 {
@@ -41,10 +41,9 @@ __echarts_config__={width,height,option};
 }
 return __echarts_config__;
 `,
-    )
+    ) as (echarts: EChartsType) => Promise<EChartsConfig>
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    return runner(myChart) as Promise<EChartsConfig>
+    return runner(echarts)
   }
 
   return Promise.resolve({ option: JSON.parse(config) as EChartsOption })

@@ -1,1 +1,1 @@
-export * from './mermaid.js'
+export type * from './mermaid.js'
