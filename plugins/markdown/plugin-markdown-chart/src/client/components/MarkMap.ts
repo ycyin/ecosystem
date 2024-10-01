@@ -11,9 +11,9 @@ import {
   shallowRef,
 } from 'vue'
 
-import '../styles/markmap.scss'
+import '../styles/markmap.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 export default defineComponent({
   name: 'MarkMap',
@@ -27,11 +27,11 @@ export default defineComponent({
     id: { type: String, required: true },
 
     /**
-     * Markmap content
+     * Markmap data
      *
-     * Markmap
+     * Markmap 数据
      */
-    content: { type: String, required: true },
+    data: { type: String, required: true },
   },
 
   setup(props) {
@@ -39,56 +39,63 @@ export default defineComponent({
     const markupWrapper = shallowRef<HTMLElement>()
     const markmapSvg = shallowRef<SVGElement>()
 
-    let markupMap: Markmap | null = null
+    let markmap: Markmap | null = null
 
     useEventListener(
       'resize',
       useDebounceFn(() => {
-        void markupMap?.fit()
+        void markmap?.fit()
       }, 100),
     )
 
     onMounted(() => {
       void Promise.all([
         import(/* webpackChunkName: "markmap" */ 'markmap-lib'),
-        import(/* webpackChunkName: "markmap" */ 'markmap-toolbar'),
         import(/* webpackChunkName: "markmap" */ 'markmap-view'),
+        import(/* webpackChunkName: "markmap" */ 'markmap-toolbar'),
         // Delay
         new Promise<void>((resolve) => {
-          setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
+          setTimeout(resolve, __MC_DELAY__)
         }),
       ]).then(
-        async ([{ Transformer }, { Toolbar }, { Markmap, deriveOptions }]) => {
-          const transformer = new Transformer()
-          const { frontmatter, root } = transformer.transform(
-            decodeData(props.content),
-          )
+        async ([{ Transformer, builtInPlugins }, markmapView, { Toolbar }]) => {
+          const { Markmap, deriveOptions, loadCSS, loadJS } = markmapView
 
-          markupMap = Markmap.create(
+          const transformer = new Transformer(builtInPlugins)
+          const { features, frontmatter, root } = transformer.transform(
+            decodeData(props.data),
+          )
+          const { styles, scripts } = transformer.getUsedAssets(features)
+
+          if (styles) await loadCSS(styles)
+          if (scripts) await loadJS(scripts, { getMarkmap: () => markmapView })
+
+          markmap = Markmap.create(
             markmapSvg.value!,
             deriveOptions({
               maxWidth: 240,
               ...frontmatter?.markmap,
             }),
+            root,
           )
 
-          const { el } = Toolbar.create(markupMap)
+          await markmap.fit()
 
-          markupMap.setData(root)
-          await markupMap.fit()
+          const { el } = Toolbar.create(markmap)
 
           el.style.position = 'absolute'
           el.style.bottom = '0.5rem'
           el.style.right = '0.5rem'
 
           markupWrapper.value!.append(el)
+
           loading.value = false
         },
       )
     })
 
     onUnmounted(() => {
-      markupMap?.destroy()
+      markmap?.destroy()
     })
 
     return (): VNode =>

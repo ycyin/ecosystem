@@ -1,4 +1,4 @@
-import { LoadingIcon, decodeData } from '@vuepress/helper/client'
+import { LoadingIcon, decodeData, wait } from '@vuepress/helper/client'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
 import type { EChartsOption, EChartsType } from 'echarts'
 import type { PropType, VNode } from 'vue'
@@ -12,9 +12,9 @@ import {
 } from 'vue'
 
 import { useEChartsConfig } from '../helpers/index.js'
-import '../styles/echarts.scss'
+import '../styles/echarts.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 interface EChartsConfig {
   width?: number
@@ -101,10 +101,7 @@ export default defineComponent({
     onMounted(() => {
       void Promise.all([
         import(/* webpackChunkName: "echarts" */ 'echarts'),
-        // Delay
-        new Promise<void>((resolve) => {
-          setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
-        }),
+        wait(__MC_DELAY__),
       ]).then(async ([echarts]) => {
         await echartsConfig.setup?.()
 

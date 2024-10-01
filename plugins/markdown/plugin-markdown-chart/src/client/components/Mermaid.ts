@@ -18,9 +18,9 @@ import {
 import { useMermaidOptions } from '../helpers/index.js'
 import type { MermaidThemeVariables } from '../typings/index.js'
 
-import '../styles/mermaid.scss'
+import '../styles/mermaid.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 const DEFAULT_CHART_OPTIONS = { useMaxWidth: false }
 
@@ -123,7 +123,7 @@ export default defineComponent({
           ? Promise.resolve()
           : ((loaded = true),
             new Promise<void>((resolve) => {
-              setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
+              setTimeout(resolve, __MC_DELAY__)
             })),
       ])
 

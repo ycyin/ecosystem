@@ -1,4 +1,4 @@
-import { LoadingIcon, decodeData } from '@vuepress/helper/client'
+import { LoadingIcon, decodeData, wait } from '@vuepress/helper/client'
 import { useDebounceFn, useEventListener } from '@vueuse/core'
 import type { Chart } from 'flowchart.ts'
 import type { PropType, VNode } from 'vue'
@@ -6,9 +6,9 @@ import { computed, defineComponent, h, onMounted, ref, shallowRef } from 'vue'
 
 import { flowchartPresets } from '../utils/index.js'
 
-import '../styles/flowchart.scss'
+import '../styles/flowchart.css'
 
-declare const MARKDOWN_ENHANCE_DELAY: number
+declare const __MC_DELAY__: number
 
 export default defineComponent({
   name: 'FlowChart',
@@ -81,10 +81,7 @@ export default defineComponent({
     onMounted(() => {
       void Promise.all([
         import(/* webpackChunkName: "flowchart" */ 'flowchart.ts'),
-        // Delay
-        new Promise<void>((resolve) => {
-          setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)
-        }),
+        wait(__MC_DELAY__),
       ]).then(([{ parse }]) => {
         flowchart = parse(decodeData(props.code))
 

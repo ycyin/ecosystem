@@ -8,7 +8,7 @@ export interface MarkdownChartPluginOptions {
    *
    * @default false
    */
-  chartJs?: boolean
+  chartjs?: boolean
 
   /**
    * Whether to enable echarts support

@@ -1,6 +1,6 @@
 {
   "name": "@vuepress/plugin-comment",
-  "version": "2.0.0-rc.46",
+  "version": "2.0.0-rc.53",
   "description": "VuePress plugin - comment",
   "keywords": [
     "vuepress-plugin",
@@ -42,19 +42,20 @@
   ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
+    "bundle": "rollup -c rollup.config.ts --configPlugin esbuild",
     "clean": "rimraf --glob ./lib ./*.tsbuildinfo",
     "style": "sass src:lib --embed-sources --style=compressed"
   },
   "dependencies": {
     "@vuepress/helper": "workspace:*",
     "giscus": "^1.5.0",
-    "vue": "^3.5.7"
+    "vue": "^3.5.10"
   },
   "peerDependencies": {
     "@waline/client": "^3.3.1",
     "artalk": "^2.9.0",
     "twikoo": "^1.6.39",
-    "vuepress": "2.0.0-rc.15"
+    "vuepress": "2.0.0-rc.17"
   },
   "peerDependenciesMeta": {
     "@waline/client": {

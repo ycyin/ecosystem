@@ -7,7 +7,7 @@ import {
 } from '@vuepress/helper'
 import type { Plugin } from 'vuepress/core'
 import {
-  chartJs,
+  chartjs,
   echarts,
   flowchart,
   markmap,
@@ -15,6 +15,7 @@ import {
   plantuml,
 } from './markdown-it-plugins/index.js'
 import type { MarkdownChartPluginOptions } from './options.js'
+import { prepareConfigFile } from './prepareConfigFile.js'
 import { PLUGIN_NAME, getInstallStatus, logger } from './utils.js'
 
 export const markdownChartPlugin =
@@ -35,7 +36,7 @@ export const markdownChartPlugin =
     }
 
     const status = {
-      chartjs: getStatus('chartJs', ['chart.js']),
+      chartjs: getStatus('chartjs', ['chart.js']),
       echarts: getStatus('echarts', ['echarts']),
       flowchart: getStatus('flowchart', ['flowchart.ts']),
       markmap: getStatus('markmap', [
@@ -49,8 +50,12 @@ export const markdownChartPlugin =
     return {
       name: PLUGIN_NAME,
 
+      define: {
+        __MC_DELAY__: options.delay ?? 800,
+      },
+
       extendsMarkdown: (md) => {
-        if (status.chartjs) md.use(chartJs)
+        if (status.chartjs) md.use(chartjs)
         if (status.echarts) md.use(echarts)
         if (status.flowchart) md.use(flowchart)
         if (isArray(options.plantuml)) md.use(plantuml, options)
@@ -106,5 +111,7 @@ export const markdownChartPlugin =
           addViteSsrExternal(bundlerOptions, app, 'mermaid')
         }
       },
+
+      clientConfigFile: () => prepareConfigFile(app, status),
     }
   }

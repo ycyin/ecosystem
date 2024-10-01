@@ -8,10 +8,12 @@ import { catalogPlugin } from '@vuepress/plugin-catalog'
 import { commentPlugin } from '@vuepress/plugin-comment'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { feedPlugin } from '@vuepress/plugin-feed'
+import { markdownChartPlugin } from '@vuepress/plugin-markdown-chart'
 import { markdownImagePlugin } from '@vuepress/plugin-markdown-image'
 import { markdownMathPlugin } from '@vuepress/plugin-markdown-math'
 import { redirectPlugin } from '@vuepress/plugin-redirect'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { revealJsPlugin } from '@vuepress/plugin-revealjs'
 import { shikiPlugin } from '@vuepress/plugin-shiki'
 import { defineUserConfig } from 'vuepress'
 import { getDirname, path } from 'vuepress/utils'
@@ -54,15 +56,18 @@ export default defineUserConfig({
         // handle @vuepress packages import path
         if (importPath.startsWith('@vuepress/')) {
           const packageName = importPath.match(/^(@vuepress\/[^/]*)/)![1]
-          return importPath
-            .replace(
-              packageName,
-              path.dirname(
-                getRealPath(`${packageName}/package.json`, import.meta.url),
-              ),
-            )
-            .replace('/src/', '/lib/')
-            .replace(/hotKey\.ts$/, 'hotKey.d.ts')
+          const realPath = importPath.replace(
+            packageName,
+            path.dirname(
+              getRealPath(`${packageName}/package.json`, import.meta.url),
+            ),
+          )
+
+          return realPath.endsWith('vars.css')
+            ? realPath
+            : realPath
+                .replace('/src/', '/lib/')
+                .replace(/hotKey\.ts$/, 'hotKey.d.ts')
         }
         return importPath
       },
@@ -87,14 +92,41 @@ export default defineUserConfig({
       json: true,
       rss: true,
     }),
+    markdownChartPlugin({
+      chartjs: true,
+      echarts: true,
+      flowchart: true,
+      markmap: true,
+      mermaid: true,
+      plantuml: true,
+    }),
     markdownImagePlugin({
       figure: true,
       mark: true,
       size: true,
     }),
-    markdownMathPlugin(),
+    markdownMathPlugin({
+      type: 'katex',
+    }),
     redirectPlugin({
       switchLocale: 'modal',
+    }),
+    revealJsPlugin({
+      plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
+      themes: [
+        'auto',
+        'beige',
+        'black',
+        'blood',
+        'league',
+        'moon',
+        'night',
+        'serif',
+        'simple',
+        'sky',
+        'solarized',
+        'white',
+      ],
     }),
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),

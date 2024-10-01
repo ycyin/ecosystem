@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.52](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.51...v2.0.0-rc.52) (2024-09-30)
+
+### Bug Fixes
+
+- **plugin-redirect:** respect config option from command line ([790731a](https://github.com/vuepress/ecosystem/commit/790731aafa31a4aa68b720632d2f33453e18bfab))
+
+### Features
+
+- **plugin-redirect:** reduce runtime size ([#268](https://github.com/vuepress/ecosystem/issues/268)) ([1adfab9](https://github.com/vuepress/ecosystem/commit/1adfab9dcf5589dd391c387aa46930b836941941))
+- use rollup to bundle files ([#267](https://github.com/vuepress/ecosystem/issues/267)) ([164252d](https://github.com/vuepress/ecosystem/commit/164252d350b73a9d6d7cbe0e713be4ee2be47c08))
+
+# [2.0.0-rc.51](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.50...v2.0.0-rc.51) (2024-09-23)
+
+### Features
+
+- **plugin-redirect:** add remember my choice, close [#253](https://github.com/vuepress/ecosystem/issues/253) ([#259](https://github.com/vuepress/ecosystem/issues/259)) ([8805d9c](https://github.com/vuepress/ecosystem/commit/8805d9c95611facabc3c02cb50d6ee9dafdac852))
+
+# [2.0.0-rc.47](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.46...v2.0.0-rc.47) (2024-09-22)
+
+### Features
+
+- **plugin-redirect:** appear target language first ([4ca960a](https://github.com/vuepress/ecosystem/commit/4ca960a90de9dce54c2b45038eec11e3fe9e5d7e))
+
 # [2.0.0-rc.46](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.45...v2.0.0-rc.46) (2024-09-20)
 
 **Note:** Version bump only for package @vuepress/plugin-redirect

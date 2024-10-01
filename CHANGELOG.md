@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.53](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.52...v2.0.0-rc.53) (2024-09-30)
+
+### Bug Fixes
+
+- **plugin-comment:** fix rollup config ([7ba0244](https://github.com/vuepress/ecosystem/commit/7ba0244ba39ab3abcf0eaf01bd2b98e3a7c3ca57))
+
+# [2.0.0-rc.52](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.51...v2.0.0-rc.52) (2024-09-30)
+
+### Bug Fixes
+
+- **plugin-comment:** add missing style import for Waline ([f976a5c](https://github.com/vuepress/ecosystem/commit/f976a5ca619f0e870e40f7ef87b0b83d199b3e20))
+- **plugin-markdown-math:** improve font-size in katex ([4add5f1](https://github.com/vuepress/ecosystem/commit/4add5f14a18a83d352419cd2d3863beb5434fb97))
+- **plugin-markdown-math:** prevent scrollbar with mathjax ([c73b86f](https://github.com/vuepress/ecosystem/commit/c73b86f684605fede21b0879c4826baaf2d37bbb))
+- **plugin-pwa:** fix config file ([4295c5d](https://github.com/vuepress/ecosystem/commit/4295c5d2bd8e64a51916909337eb9597ef9befb3))
+- **plugin-redirect:** respect config option from command line ([790731a](https://github.com/vuepress/ecosystem/commit/790731aafa31a4aa68b720632d2f33453e18bfab))
+- **plugin-rtl:** add missing client entry ([da8be48](https://github.com/vuepress/ecosystem/commit/da8be487d81b8b0c5c4e7c5ed455c63667efe369))
+- **plugin-rtl:** fix client imports ([39b43f1](https://github.com/vuepress/ecosystem/commit/39b43f10cdef760708575e360ed643fda6a9ba95))
+
+### Features
+
+- **helper:** improve header anchor normalize ([ef2c444](https://github.com/vuepress/ecosystem/commit/ef2c444dd432b89dd49655e11bd678f3d73400bd))
+- **helper:** sync mergeViteConfig with vite ([6e17c80](https://github.com/vuepress/ecosystem/commit/6e17c809daf6cd5f633051fbd29b1988e14e82df))
+- **plugin-copyright:** provide composables ([a9b6e98](https://github.com/vuepress/ecosystem/commit/a9b6e98ac9300c9a485cb317afb050b0a3e4d9eb))
+- **plugin-feed:** add app as second argument in getter ([08dbf87](https://github.com/vuepress/ecosystem/commit/08dbf87df02cd9764bfe09d9316dba9872411254))
+- **plugin-markdown-hint:** improve hint container outlook ([#264](https://github.com/vuepress/ecosystem/issues/264)) ([340fff5](https://github.com/vuepress/ecosystem/commit/340fff5ced3f720f2d6204a230ed320031f9faa9))
+- **plugin-markdown-math:** add macros option for katex by default, close [#261](https://github.com/vuepress/ecosystem/issues/261) ([c5568ca](https://github.com/vuepress/ecosystem/commit/c5568ca84ed82e05407a38423b900c7782769073))
+- **plugin-markdown-tab:** provide client entry ([a1ed50b](https://github.com/vuepress/ecosystem/commit/a1ed50bb738bb8b510a1471c797ffc5d8731f683))
+- **plugin-pwa:** improve style tree shaking ([aed3060](https://github.com/vuepress/ecosystem/commit/aed3060c104b872cd6f337202abd36090648faac))
+- **plugin-pwa:** prevent defining variables ([ec0d8d0](https://github.com/vuepress/ecosystem/commit/ec0d8d0cc5223b90b53c337079a1a1c5d5dbbf2b))
+- **plugin-redirect:** reduce runtime size ([#268](https://github.com/vuepress/ecosystem/issues/268)) ([1adfab9](https://github.com/vuepress/ecosystem/commit/1adfab9dcf5589dd391c387aa46930b836941941))
+- **plugin-rtl:** provide composables ([3d0e4a1](https://github.com/vuepress/ecosystem/commit/3d0e4a18263a9daa0a2b49b1d40fccc219357997))
+- use rollup to bundle files ([#267](https://github.com/vuepress/ecosystem/issues/267)) ([164252d](https://github.com/vuepress/ecosystem/commit/164252d350b73a9d6d7cbe0e713be4ee2be47c08))
+
+# [2.0.0-rc.51](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.50...v2.0.0-rc.51) (2024-09-23)
+
+### Features
+
+- **plugin-redirect:** add remember my choice, close [#253](https://github.com/vuepress/ecosystem/issues/253) ([#259](https://github.com/vuepress/ecosystem/issues/259)) ([8805d9c](https://github.com/vuepress/ecosystem/commit/8805d9c95611facabc3c02cb50d6ee9dafdac852))
+- **plugin-sass-palette:** remove variables staring with underscore in generator ([f329800](https://github.com/vuepress/ecosystem/commit/f329800e357e5a27eb1107252977dd98b29affed))
+
+# [2.0.0-rc.50](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.49...v2.0.0-rc.50) (2024-09-23)
+
+**Note:** Version bump only for package @vuepress/ecosystem
+
+# [2.0.0-rc.49](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.48...v2.0.0-rc.49) (2024-09-23)
+
+### Bug Fixes
+
+- **plugin-markdown-math:** incorrect import css path ([#256](https://github.com/vuepress/ecosystem/issues/256)) ([4e61424](https://github.com/vuepress/ecosystem/commit/4e6142496e2e80472d377d58cfbf538e5a51a981))
+
+### Features
+
+- **plugin-prismjs:** improve highlight color generation ([492cd27](https://github.com/vuepress/ecosystem/commit/492cd2746821e1e3554f8a46de14042c107bb68b))
+
+# [2.0.0-rc.48](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.47...v2.0.0-rc.48) (2024-09-22)
+
+### Bug Fixes
+
+- **plugin-revealjs:** fix embed mode and keyboard events ([5d98506](https://github.com/vuepress/ecosystem/commit/5d985061c232037dc48329e3b8ce28ba15f75e1d))
+
+# [2.0.0-rc.47](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.46...v2.0.0-rc.47) (2024-09-22)
+
+### Bug Fixes
+
+- **plugin-comment:** avoid resolving issues in pnpm ([2e319fe](https://github.com/vuepress/ecosystem/commit/2e319fe75f67419321372c1931419030fa227e1c))
+- **theme-default:** fix hero action button color ([12a8d5d](https://github.com/vuepress/ecosystem/commit/12a8d5dc44198f58999c6ad88c750c775aba4950))
+
+### Features
+
+- add plugin-markdown-tab ([#250](https://github.com/vuepress/ecosystem/issues/250)) ([49ea97c](https://github.com/vuepress/ecosystem/commit/49ea97cf10f07ad3e20b2528d17efc3b6576ac7a))
+- add plugin-revealjs ([#251](https://github.com/vuepress/ecosystem/issues/251)) ([253b959](https://github.com/vuepress/ecosystem/commit/253b959cca19fd8ef9eff5d90f21a147c916899a))
+- **plugin-docsearch:** improve search box appearance ([5282d3b](https://github.com/vuepress/ecosystem/commit/5282d3b3c5ca63170d2c915e76054cb326c00e11))
+- **plugin-markdown-hint:** toggle all details block open before print ([4cb99de](https://github.com/vuepress/ecosystem/commit/4cb99dee940441d030d23d92bf9c6749678e3cd6))
+- **plugin-redirect:** appear target language first ([4ca960a](https://github.com/vuepress/ecosystem/commit/4ca960a90de9dce54c2b45038eec11e3fe9e5d7e))
+
 # [2.0.0-rc.46](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.45...v2.0.0-rc.46) (2024-09-20)
 
 ### Bug Fixes

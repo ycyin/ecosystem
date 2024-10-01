@@ -8,8 +8,8 @@ import { backToTopPlugin } from '@vuepress/plugin-back-to-top'
 import { copyCodePlugin } from '@vuepress/plugin-copy-code'
 import { gitPlugin } from '@vuepress/plugin-git'
 import { linksCheckPlugin } from '@vuepress/plugin-links-check'
-import { markdownContainerPlugin } from '@vuepress/plugin-markdown-container'
 import { markdownHintPlugin } from '@vuepress/plugin-markdown-hint'
+import { markdownTabPlugin } from '@vuepress/plugin-markdown-tab'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 import { palettePlugin } from '@vuepress/plugin-palette'
@@ -23,8 +23,8 @@ import { fs, getDirname, path } from 'vuepress/utils'
 import type {
   DefaultThemeLocaleOptions,
   DefaultThemePageData,
-  DefaultThemePluginsOptions,
 } from '../shared/index.js'
+import type { DefaultThemePluginsOptions } from './typings.js'
 import {
   assignDefaultLocaleOptions,
   resolveMarkdownHintLocales,
@@ -125,8 +125,6 @@ export const defaultTheme = ({
       // @vuepress/plugin-active-header-link
       themePlugins.activeHeaderLinks !== false
         ? activeHeaderLinksPlugin({
-            headerLinkSelector: 'a.vp-sidebar-item',
-            headerAnchorSelector: '.header-anchor',
             // should greater than page transition duration
             delay: 300,
           })
@@ -153,21 +151,6 @@ export const defaultTheme = ({
         ? markdownHintPlugin({
             locales: resolveMarkdownHintLocales(localeOptions),
             ...(isPlainObject(themePlugins.hint) ? themePlugins.hint : {}),
-          })
-        : [],
-
-      themePlugins.container?.codeGroup !== false
-        ? markdownContainerPlugin({
-            type: 'code-group',
-            before: () => `<CodeGroup>\n`,
-            after: () => '</CodeGroup>\n',
-          })
-        : [],
-      themePlugins.container?.codeGroupItem !== false
-        ? markdownContainerPlugin({
-            type: 'code-group-item',
-            before: (info) => `<CodeGroupItem title="${info}">\n`,
-            after: () => '</CodeGroupItem>\n',
           })
         : [],
 
@@ -226,6 +209,15 @@ export const defaultTheme = ({
               ? themePlugins.sitemap
               : {}),
           })
+        : [],
+
+      // @vuepress/plugin-markdown-tab
+      themePlugins.tab !== false
+        ? markdownTabPlugin(
+            isPlainObject(themePlugins.tab)
+              ? themePlugins.tab
+              : { codeTabs: true, tabs: true },
+          )
         : [],
 
       // @vuepress/plugin-theme-data

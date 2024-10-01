@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-rc.53](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.52...v2.0.0-rc.53) (2024-09-30)
+
+### Bug Fixes
+
+- **plugin-comment:** fix rollup config ([7ba0244](https://github.com/vuepress/ecosystem/commit/7ba0244ba39ab3abcf0eaf01bd2b98e3a7c3ca57))
+
+# [2.0.0-rc.52](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.51...v2.0.0-rc.52) (2024-09-30)
+
+### Bug Fixes
+
+- **plugin-comment:** add missing style import for Waline ([f976a5c](https://github.com/vuepress/ecosystem/commit/f976a5ca619f0e870e40f7ef87b0b83d199b3e20))
+
+### Features
+
+- use rollup to bundle files ([#267](https://github.com/vuepress/ecosystem/issues/267)) ([164252d](https://github.com/vuepress/ecosystem/commit/164252d350b73a9d6d7cbe0e713be4ee2be47c08))
+
+# [2.0.0-rc.47](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.46...v2.0.0-rc.47) (2024-09-22)
+
+### Bug Fixes
+
+- **plugin-comment:** avoid resolving issues in pnpm ([2e319fe](https://github.com/vuepress/ecosystem/commit/2e319fe75f67419321372c1931419030fa227e1c))
+
 # [2.0.0-rc.46](https://github.com/vuepress/ecosystem/compare/v2.0.0-rc.45...v2.0.0-rc.46) (2024-09-20)
 
 ### Features
