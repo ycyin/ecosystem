@@ -1,6 +1,6 @@
 {
   "name": "@vuepress/theme-default",
-  "version": "2.0.0-rc.49",
+  "version": "2.0.0-rc.52",
   "description": "Default theme of VuePress",
   "keywords": [
     "vuepress-theme",
@@ -38,6 +38,7 @@
   ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
+    "bundle": "tsc -b tsconfig.build.json",
     "clean": "rimraf --glob ./lib ./*.tsbuildinfo",
     "copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib"
   },
@@ -58,13 +59,13 @@
     "@vuepress/plugin-sitemap": "workspace:*",
     "@vuepress/plugin-theme-data": "workspace:*",
     "@vueuse/core": "^11.1.0",
-    "vue": "^3.5.8"
+    "vue": "^3.5.10"
   },
   "peerDependencies": {
     "sass": "^1.79.2",
     "sass-embedded": "^1.79.2",
     "sass-loader": "^16.0.1",
-    "vuepress": "2.0.0-rc.15"
+    "vuepress": "2.0.0-rc.17"
   },
   "peerDependenciesMeta": {
     "sass": {

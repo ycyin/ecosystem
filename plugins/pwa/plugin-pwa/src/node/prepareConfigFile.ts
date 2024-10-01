@@ -1,5 +1,8 @@
+import { getLocaleConfig, getRealPath } from '@vuepress/helper'
 import type { App } from 'vuepress/core'
 import { getDirname, path } from 'vuepress/utils'
+import { pwaLocales } from './locales.js'
+import { PLUGIN_NAME } from './logger.js'
 import type { PwaPluginOptions } from './options.js'
 
 const __dirname = getDirname(import.meta.url)
@@ -44,22 +47,26 @@ import { PwaReadyPopup as _PwaReadyPopup } from "${
     `\
 import { h }  from "vue";
 import { defineClientConfig } from "vuepress/client";
-import { setupPwa } from "${path.join(__dirname, '../client/composables/setupPwa.js')}";
-import { setupViewPoint } from "${path.join(__dirname, '../client/composables/setupViewPoint.js')}";
+import { setupPwa, setupViewPoint } from "${path.join(__dirname, '../client/composables/index.js')}";
 ${configImport}
-import "${path.join(__dirname, '../client/styles/vars.css')}";
+import "${getRealPath('@vuepress/plugin-pwa/styles/vars.css', import.meta.url)}";
 
-const locales = __PWA_LOCALES__;
-
-${rootComponents.map((item) => `const ${item} = () => h(_${item}, { locales })`).join('\n')}
+const locales = ${JSON.stringify(
+      getLocaleConfig({
+        app,
+        name: PLUGIN_NAME,
+        default: pwaLocales,
+        config: options.locales,
+      }),
+    )};
 
 export default defineClientConfig({
   setup: () => {
-    setupPwa(__SW_PATH__, __SW_FORCE_UPDATE__);
+    setupPwa(${JSON.stringify(options.serviceWorkerFilename ?? 'service-worker.js')}, ${options.update === 'force'});
     setupViewPoint();
   },
   rootComponents: [
-${rootComponents.map((item) => `    ${item},`).join('\n')}
+${rootComponents.map((item) => `    () => h(_${item}, { locales }),`).join('\n')}
   ],
 });
 `,

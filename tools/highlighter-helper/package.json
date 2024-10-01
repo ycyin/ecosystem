@@ -1,6 +1,6 @@
 {
   "name": "@vuepress/highlighter-helper",
-  "version": "2.0.0-rc.46",
+  "version": "2.0.0-rc.52",
   "description": "VuePress Highlighter helper",
   "keywords": [
     "vuepress",
@@ -36,12 +36,13 @@
   ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
+    "bundle": "rollup -c rollup.config.ts --configPlugin esbuild",
     "clean": "rimraf --glob ./lib ./*.tsbuildinfo",
     "style": "sass src:lib --embed-sources --style=compressed"
   },
   "peerDependencies": {
-    "@vueuse/core": "^11.0.0",
-    "vuepress": "2.0.0-rc.15"
+    "@vueuse/core": "^11.1.0",
+    "vuepress": "2.0.0-rc.17"
   },
   "peerDependenciesMeta": {
     "@vueuse/core": {
